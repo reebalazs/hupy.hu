@@ -8,10 +8,6 @@
   },
   "private": true,
   "devDependencies": {
-    "gulp": "*",
-    "debowerify": "*",
-    "watchify": "*",
-    "browserify-shim": "*",
     "gf-gulp-utils": "git://github.com/reebalazs/gf-gulp-utils.git#master"
   },
   "browserify": {
