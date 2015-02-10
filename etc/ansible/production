@@ -1,0 +1,10 @@
+
+[webserver]
+mekkmester.greenfinity.hu
+
+[webserver:vars]
+site = hupy-landing
+branch = production
+repo = git@github.com:reebalazs/hupy-landing.git
+working_dir = "~/sites/{{site}}/{{branch}}"
+

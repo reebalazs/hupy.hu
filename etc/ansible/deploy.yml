@@ -1,0 +1,18 @@
+
+---
+
+- hosts: webserver
+  user: demos
+  tasks:
+
+  - name: checkout or update the repo
+    action: git repo={{repo}} dest={{working_dir}}
+    register: checkout_result
+
+  - name: install or update frontend
+    action: >
+      shell chdir={{working_dir}} 
+      npm install;
+      npm update;
+      gulp bower;
+      gulp build;

@@ -1,0 +1,25 @@
+{
+  "name": "hupy.hu",
+  "version": "0.0.0",
+  "description": "hupy.hu website",
+  "repository": {
+    "type": "git",
+    "url": "ssh:/git@github.com:reebalazs/hupy.hu.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "gulp": "*",
+    "debowerify": "*",
+    "watchify": "*",
+    "browserify-shim": "*",
+    "gf-gulp-utils": "git://github.com/reebalazs/gf-gulp-utils.git#master"
+  },
+  "browserify": {
+    "transform": [
+      "debowerify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+  }
+}

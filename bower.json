@@ -1,0 +1,19 @@
+{
+  "name": "hupy.hu",
+  "version": "0.0.0",
+  "description": "hupy.hu website",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:reebalazs/hupy.hu.git"
+  },
+  "dependencies": {
+    "jquery": "*",
+    "bootstrap": "*",
+    "angular": "*",
+    "angular-ui-router": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "*",
+    "fixtures": "*"
+  }
+}
