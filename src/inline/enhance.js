@@ -177,7 +177,6 @@
     */
   var fonts = getMeta( fontsKey );
   if( fonts ){
-    console.log('LOADCSS', fonts.content);
     loadCSS( fonts.content );
   }
 
