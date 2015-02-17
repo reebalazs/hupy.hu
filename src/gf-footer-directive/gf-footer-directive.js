@@ -8,16 +8,26 @@ var $ = require('jquery');
 module.exports = ['$window', '$timeout', '$rootScope',
 function($window, $timeout, $rootScope) {
 
-  var elGhost, timer;
+  var elGhost, timer, offset;
 
   function adjustStickyPosition(scope, el, attr) {
     // measure positions
     var $w = $($window);
     var viewPortBottom = $w.scrollTop() + $w.height();
-    var ghostBottom = elGhost.offset().top + elGhost.outerHeight();
+    var ghostBottom = elGhost.offset().top + elGhost.height();
     var needsToStick = ghostBottom < viewPortBottom;
-    // console.log('ADJUST', needsToStick, viewPortBottom, ghostBottom);
-    $(el).css('position', needsToStick ? 'fixed' : 'static');
+    //console.log('ADJUST', needsToStick, viewPortBottom, ghostBottom);
+    if (needsToStick) {
+      $(el).css({
+        position: 'fixed',
+        bottom: 0,
+      });
+    } else {
+      $(el).css({
+        position: 'absolute',
+        bottom: ''
+      });
+    }
   }
 
   function adjustStickyDelayed(scope, el, attr) {
@@ -34,14 +44,17 @@ function($window, $timeout, $rootScope) {
   }
 
   function link(scope, el, attr) {
+    offset = $(el).offset();
     elGhost = $(el.clone(true))
       .css({
-        opacity: 0
+        opacity: 0,
+        top: offset.top,
+        left: offset.left
       })
       .insertAfter(el);
     el.css('bottom', 0);
     var f = $.proxy(adjustStickyDelayed, null, scope, el, attr);
-    $($window).bind('scroll resize', f);
+    $($window).bind('resize', f);
     scope.$on('resize.manually', f);
     $rootScope.$on('$stateChangeSuccess', f);
     f();
