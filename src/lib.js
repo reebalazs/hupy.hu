@@ -19,6 +19,7 @@ module.exports = angular.module('app.lib', [
   require('angular-ui-router'),
   // components
   require('./pages').name,
+  require('./gf-footer-directive').name,
   // partials
   'templates'
 ])
